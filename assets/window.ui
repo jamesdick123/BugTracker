@@ -26,9 +26,12 @@
     <property name="toolTip">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>Tab 1</string>
+      <string>Bug Tracker</string>
      </attribute>
      <widget class="QTableWidget" name="issueTable">
       <property name="geometry">
@@ -63,8 +66,38 @@
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>Tab 2</string>
+      <string>Future Developments Tracker</string>
      </attribute>
+     <widget class="QTableWidget" name="scheduleTable">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>991</width>
+        <height>501</height>
+       </rect>
+      </property>
+      <column>
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Description</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Type</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Priority</string>
+       </property>
+      </column>
+     </widget>
     </widget>
    </widget>
    <widget class="QLabel" name="projLabel">
@@ -114,8 +147,16 @@
      <string>Help</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionRemoveTask"/>
+    <addaction name="actionUpdatePriority"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuProject"/>
+   <addaction name="menuEdit"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -167,6 +208,16 @@
   <action name="actionAddSchedule">
    <property name="text">
     <string>Add Future Development</string>
+   </property>
+  </action>
+  <action name="actionRemoveTask">
+   <property name="text">
+    <string>Remove task</string>
+   </property>
+  </action>
+  <action name="actionUpdatePriority">
+   <property name="text">
+    <string>Update Priority</string>
    </property>
   </action>
  </widget>
