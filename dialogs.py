@@ -44,7 +44,7 @@ class OpenProjDialog(QDialog):
         self.desc = [x[2] for x in self.data] #3rd element returns description
         self.projCombo.addItems(titles)
         self.descLabel.setText(self.desc[0])
-
+        self.updateDesc(0)
         self.projCombo.currentIndexChanged.connect(self.updateDesc)
 
     def updateDesc(self, index):
