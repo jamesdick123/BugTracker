@@ -33,6 +33,7 @@ class ui(QMainWindow):
         self.addIssueAction.triggered.connect(self.issueOrSchedule)
         self.addScheduleAction.triggered.connect(self.issueOrSchedule)
         #setting up table sizes
+        self.issueTable.setWordWrap(True)
         horizontalHeader = self.issueTable.horizontalHeader()
         horizontalHeader.resizeSection(0, 120)
         horizontalHeader.resizeSection(1, 550)
@@ -149,6 +150,7 @@ class ui(QMainWindow):
             self.issueTable.setItem(x, 1, QTableWidgetItem(str(issuesList[x][2])))
             self.issueTable.setItem(x, 2, QTableWidgetItem(str(issuesList[x][3])))
             self.issueTable.setItem(x, 3, QTableWidgetItem(str(issuesList[x][4])))
+        self.issueTable.resizeRowsToContents()
         #now does the schedules table, can just reuse the issueslist variable
         cur.execute("SELECT SchedulesID from ProjectSchedules WHERE ProjectID='" + str(loadedProjId) + "'")
         issuesList = cur.fetchall()
@@ -166,6 +168,7 @@ class ui(QMainWindow):
             self.scheduleTable.setItem(x, 1, QTableWidgetItem(str(issuesList[x][2])))
             self.scheduleTable.setItem(x, 2, QTableWidgetItem(str(issuesList[x][3])))
             self.scheduleTable.setItem(x, 3, QTableWidgetItem(str(issuesList[x][4])))
+        self.scheduleTable.resizeRowsToContents()
 
     def removeTask(self):
         issue = False

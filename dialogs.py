@@ -13,6 +13,7 @@ class NewProjDialog(QDialog):
     def __init__(self):
         super(NewProjDialog, self).__init__()
         #self.setupUi(self)
+        self.setWindowTitle("New Project")
         uic.loadUi("assets/NewProj.ui", self)
         #find textBoxes
         self.titleText = self.findChild(QTextEdit, "titleText")
@@ -31,6 +32,7 @@ class OpenProjDialog(QDialog):
     def __init__(self):
         super(OpenProjDialog, self).__init__()
         uic.loadUi("assets/OpenProj.ui", self)
+        self.setWindowTitle("Open Project")
         self.projCombo = self.findChild(QComboBox, "projCombo")
         self.descLabel = self.findChild(QLabel, "descLabel")
         self.descLabel.setWordWrap(True)
@@ -66,6 +68,7 @@ class IssueAndSchedule(QDialog):
     def __init__(self, typeToAdd):
         super(IssueAndSchedule, self).__init__()
         uic.loadUi("assets/Add.ui", self)
+        self.setWindowTitle("Add " + typeToAdd)
         self.priorityCombo = self.findChild(QComboBox, "priorityCombo")
         self.typeCombo = self.findChild(QComboBox, "typeCombo")
         self.titleText = self.findChild(QTextEdit, "titleText")
